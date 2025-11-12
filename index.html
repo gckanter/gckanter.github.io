@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kai's Ephemera: Writer & Developer</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use 'class' for dark mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode based on 'dark' class on <html>
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Accent colors remain constant for visual consistency
+                        'accent': '#6366F1', // Indigo-500
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Define color variables for both modes */
+        :root {
+            /* Light Mode (Default) */
+            --bg-primary: #F9FAFB; /* Gray-50 */
+            --bg-secondary: #FFFFFF; /* White */
+            --text-color: #1F2937; /* Gray-800 */
+            --border-color: #E5E7EB; /* Gray-200 */
+        }
+
+        .dark {
+            /* Dark Mode Overrides */
+            --bg-primary: #111827; /* Gray-900 */
+            --bg-secondary: #1F2937; /* Gray-800 */
+            --text-color: #F3F4F6; /* Gray-100 */
+            --border-color: #374151; /* Gray-700 */
+        }
+
+        /* Apply variables to the body and allow for smooth color transitions */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--bg-primary);
+            color: var(--text-color);
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        /* Apply variables to the header for the sticky bar */
+        header {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+
+        /* Style the main content cards dynamically */
+        .card {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Light shadow default */
+            transition: background-color 0.4s, border-color 0.4s, box-shadow 0.4s;
+        }
+
+        /* Enhance shadow and border for dark mode cards */
+        .dark .card {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-sm shadow-lg border-b bg-opacity-95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold tracking-tight text-accent hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">
+                Kai.dev
+            </h1>
+            <nav class="flex items-center space-x-4">
+                <a href="#writing" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2">Writing</a>
+                <a href="#code" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2">Code</a>
+                <a href="#ephemera" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2 hidden sm:inline-block">Ephemera</a>
+                <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2">Contact</a>
+
+                <!-- Dark/Light Mode Toggle Button -->
+                <button id="theme-toggle" type="button" class="p-2 rounded-full text-gray-500 hover:text-accent transition duration-300 ml-4">
+                    <!-- Sun Icon (Hidden in Dark Mode) -->
+                    <svg id="sun-icon" class="w-6 h-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <!-- Moon Icon (Hidden in Light Mode) -->
+                    <svg id="moon-icon" class="w-6 h-6 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center py-16 sm:py-24 mb-16 rounded-xl shadow-2xl card border-2">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl sm:text-7xl font-bold mb-4 tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">
+                    Kai Sharma
+                </h2>
+                <p class="text-xl sm:text-2xl text-gray-700 dark:text-gray-400 font-light mb-8">
+                    Crafting <span class="text-accent dark:text-indigo-300">stories</span> with words, building <span class="text-purple-600 dark:text-purple-300">tools</span> with code.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#writing" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-md text-white bg-accent hover:bg-indigo-700 dark:hover:bg-indigo-600 transition duration-300 transform hover:scale-105">
+                        Read My Work &rarr;
+                    </a>
+                    <a href="#code" class="inline-flex items-center px-6 py-3 border border-accent text-base font-medium rounded-full shadow-md text-accent hover:bg-indigo-50 dark:hover:bg-indigo-900 transition duration-300 transform hover:scale-105">
+                        See My Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid (Two Columns: Writing & Code) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- Writing Section -->
+            <section id="writing" class="space-y-8">
+                <h3 class="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-400 pb-2 mb-4">
+                    Creative & Critical Writing
+                </h3>
+
+                <!-- Short Stories Card -->
+                <div class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
+                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Short Stories</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A collection of speculative fiction and slice-of-life narratives exploring themes of identity and technology.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.81 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.81-2.034a1 1 0 00-1.175 0l-2.81 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <a href="#" class="hover:text-accent">The Last Static Transmission (Sci-Fi)</a>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.81 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.81-2.034a1 1 0 00-1.175 0l-2.81 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <a href="#" class="hover:text-accent">The Gardener of 13B (Fantasy)</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block text-indigo-600 dark:text-indigo-400 hover:text-indigo-500">View All Stories &rarr;</a>
+                </div>
+
+                <!-- Film Reviews Card -->
+                <div class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
+                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Film Reviews & Critique</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        In-depth analyses of contemporary cinema and classic works, focusing on narrative structure and visual metaphor.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="hover:text-accent">Review: 'Echo Chamber' (2025)</a>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="hover:text-accent">Tarkovsky's Aesthetics of Time</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block text-indigo-600 dark:text-indigo-400 hover:text-indigo-500">View All Reviews &rarr;</a>
+                </div>
+            </section>
+
+            <!-- Code/Projects Section -->
+            <section id="code" class="space-y-8">
+                <h3 class="text-4xl font-extrabold text-purple-600 dark:text-purple-400 border-b-2 border-purple-400 pb-2 mb-4">
+                    Software & Technical Projects
+                </h3>
+
+                <!-- Coding Projects Card -->
+                <div class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
+                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Hobbyist Software Development</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Experiments in JavaScript, Python, and Go, focusing on utility tools, APIs, and front-end development.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12.5A1 1 0 017 17a1 1 0 01-.633-.316l-4-4a1 1 0 011.266-1.53l3.812 3.813 3.42-7.538a1 1 0 011.265-.633z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="hover:text-purple-600 dark:hover:text-purple-400">Project Quanta (Tiny REST API Framework in Go)</a>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12.5A1 1 0 017 17a1 1 0 01-.633-.316l-4-4a1 1 0 011.266-1.53l3.812 3.813 3.42-7.538a1 1 0 011.265-.633z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="hover:text-purple-600 dark:hover:text-purple-400">Markdown Editor (React/TS Frontend)</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block text-purple-600 dark:text-purple-400 hover:text-purple-500">View All Repositories &rarr;</a>
+                </div>
+
+                <!-- Ephemera / Miscellaneous Card -->
+                <section id="ephemera" class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
+                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Ephemera & Musings</h4>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        The "other stuff"—short blog posts, random thoughts on design, book notes, and personal updates.
+                    </p>
+                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v10h10V6H5zm2 2h6v2H7V8zm0 4h3v2H7v-2z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="hover:text-accent">10 Things I Learned from Rust (Post)</a>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v10h10V6H5zm2 2h6v2H7V8zm0 4h3v2H7v-2z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="hover:text-accent">My Favorite Mechanical Keyboards (List)</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block text-gray-600 dark:text-gray-400 hover:text-accent">Explore the Archive &rarr;</a>
+                </section>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="border-t mt-16 py-8" style="background-color: var(--bg-secondary); border-color: var(--border-color);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h4 class="text-2xl font-bold mb-4 text-accent">Let's Connect</h4>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="mailto:kai@example.com" class="text-gray-700 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">Email</a>
+                <a href="https://github.com/kai-dev" target="_blank" class="text-gray-700 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">GitHub</a>
+                <a href="https://twitter.com/kai_writes" target="_blank" class="text-gray-700 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">Twitter</a>
+            </div>
+            <p class="text-sm text-gray-500 mt-6">
+                &copy; 2025 Kai Sharma. Built with curiosity and code.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Theme Switching -->
+    <script>
+        // Use document.documentElement instead of document.body to apply the 'dark' class
+        const htmlElement = document.documentElement;
+        const toggleButton = document.getElementById('theme-toggle');
+
+        // Function to set the theme
+        function setTheme(mode) {
+            if (mode === 'dark') {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // 1. Check local storage preference
+        let currentTheme = localStorage.getItem('theme');
+
+        // 2. If no preference, check system preference
+        if (!currentTheme) {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                currentTheme = 'dark';
+            } else {
+                currentTheme = 'light';
+            }
+        }
+
+        // 3. Apply the determined theme on load
+        setTheme(currentTheme);
+
+        // Event listener for the toggle button
+        toggleButton.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+    </script>
+
+</body>
+</html>
