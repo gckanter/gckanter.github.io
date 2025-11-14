@@ -1,0 +1,37 @@
+<header class="sticky top-0 z-50 backdrop-blur-sm shadow-lg border-b bg-opacity-95">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="group transition duration-300">
+            <h1 class="sr-only">Gareth.dev</h1>
+            <!-- Abstract Logo (Inline SVG) -->
+            <svg width="32" height="32" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-accent group-hover:text-slate-600 dark:group-hover:text-slate-400 transition duration-300">
+                <path d="M 0 0 H 100 V 100 H 0 V 0" fill="currentColor"/>
+                <path d="M 80 0 H 100 V 300 H 80 V 0" fill="currentColor"/>
+                <path d="M 0 200 H 100 V 300 H 0 V 200" fill="currentColor"/>
+                <path d="M 200 0 H 300 V 100 H 200 V 0" fill="currentColor"/>
+                <path d="M 200 0 H 220 V 300 H 200 V 0" fill="currentColor"/>
+                <path d="M 200 200 H 300 V 300 H 200 V 200" fill="currentColor"/>
+            </svg>
+        </a>
+        
+        <!-- Navigation Links -->
+        <nav class="flex items-center space-x-4">
+            <a href="#writing" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2">Writing</a>
+            <a href="code.html" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2">Code</a>
+            <a href="#ephemera" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2 hidden sm:inline-block">Ephemera</a>
+            <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-accent font-medium transition duration-300 rounded-lg px-3 py-2">Contact</a>
+
+            <!-- Dark/Light Mode Toggle Button (ID will be handled by main script) -->
+            <button id="theme-toggle" type="button" class="p-2 rounded-full text-gray-500 hover:text-accent transition duration-300 ml-4">
+                <!-- Moon Icon (Hidden in Light Mode) -->
+                <svg id="moon-icon" class="w-6 h-6 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+                <!-- Sun Icon (Hidden in Dark Mode) -->
+                <svg id="sun-icon" class="w-6 h-6 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </button>
+        </nav>
+    </div>
+</header>

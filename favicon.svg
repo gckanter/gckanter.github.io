@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+    <!-- Abstract Logo for Favicon -->
+    
+    <!-- Using the primary accent color #4B6587 for visibility on varying backgrounds -->
+    
+    <!-- Path 1: Top-Left Block -->
+    <path d="M 0 0 H 100 V 100 H 0 V 0" fill="#4B6587"/>
+    
+    <!-- Path 2: Top-Right Vertical Bar (Thick line) -->
+    <path d="M 80 0 H 100 V 300 H 80 V 0" fill="#4B6587"/>
+    
+    <!-- Path 3: Bottom-Left Block -->
+    <path d="M 0 200 H 100 V 300 H 0 V 200" fill="#4B6587"/>
+    
+    <!-- Path 4: Top-Right Block (Left part of 200-300 section) -->
+    <path d="M 200 0 H 300 V 100 H 200 V 0" fill="#4B6587"/>
+    
+    <!-- Path 5: Center Vertical Bar (Thin line) -->
+    <path d="M 200 0 H 220 V 300 H 200 V 0" fill="#4B6587"/>
+    
+    <!-- Path 6: Bottom-Right Block -->
+    <path d="M 200 200 H 300 V 300 H 200 V 200" fill="#4B6587"/>
+</svg>
