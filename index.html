@@ -3,209 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gareth Kanter: Writer & Developer</title>
-    <!-- Favicon link referencing the local SVG file -->
+    <title>Gareth Kanter - Writer & Developer</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <!-- Load Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind to use 'class' for dark mode and the new accent color -->
-	<script>
-        tailwind.config = {
-            darkMode: 'class', // MUST be 'class' for your JS logic to work
-            theme: {
-                extend: {
-                    colors: {
-                        // Define your custom accent color
-                        accent: '#4B6587', // Adjust if your color is different
-                    },
-                    fontFamily: {
-                        // Ensure 'Inter' is available globally
-                        inter: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-	<script src="navbar.js" defer></script>
-    <script src="theme.js" defer></script>
-	<link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased min-h-screen">
-
-    <!-- Header & Navigation -->
-	<div data-include="navbar.html"></div>
-    
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        <!-- Combined Hero/Carousel Section -->
-        <section id="hero-container" class="relative mb-16 rounded-xl overflow-hidden shadow-2xl border-4" style="border-color: var(--border-color);">
-            
-            <!-- 1. Image Carousel (Background Layer) -->
-            <div id="carousel" class="carousel-container min-h-[300px] sm:min-h-[400px]">
-                <div id="carousel-track" class="carousel-track h-full">
-                    <!-- Carousel Item 1: Writing -->
-                    <div class="carousel-item">
-                        <img src="https://placehold.co/1200x400/1E3A8A/D1E0F0?text=Writing+Sample%3A+The+Forgotten+City"
-                             onerror="this.onerror=null; this.src='https://placehold.co/1200x400/1E3A8A/D1E0F0?text=Writing+Sample';"
-                             alt="Placeholder image for a writing sample"
-                             class="w-full h-full object-cover" />
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-placeholder" id="logo">
+			            <svg width="40" height="40" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-accent group-hover:text-slate-600 dark:group-hover:text-slate-400 transition duration-300">
+			                <path d="M 0 0 H 100 V 100 H 0 V 0" fill="currentColor"/>
+			                <path d="M 80 0 H 100 V 300 H 80 V 0" fill="currentColor"/>
+			                <path d="M 0 200 H 100 V 300 H 0 V 200" fill="currentColor"/>
+			                <path d="M 200 0 H 300 V 100 H 200 V 0" fill="currentColor"/>
+			                <path d="M 200 0 H 220 V 300 H 200 V 0" fill="currentColor"/>
+			                <path d="M 200 200 H 300 V 300 H 200 V 200" fill="currentColor"/>
+			            </svg>
                     </div>
-                    <!-- Carousel Item 2: Code -->
-                    <div class="carousel-item">
-                        <img src="https://placehold.co/1200x400/4B5563/F3F4F6?text=Code+Project%3A+Python+API+Client"
-                             onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4B5563/F3F4F6?text=Code+Project';"
-                             alt="Placeholder image for a coding project"
-                             class="w-full h-full object-cover" />
-                    </div>
-                    <!-- Carousel Item 3: Review -->
-                    <div class="carousel-item">
-                        <img src="https://placehold.co/1200x400/6B7280/1F2937?text=Review%3A+Dune%3A+Part+Two"
-                             onerror="this.onerror=null; this.src='https://placehold.co/1200x400/6B7280/1F2937?text=Review+Visual';"
-                             alt="Placeholder image for a film review"
-                             class="w-full h-full object-cover" />
-                    </div>
+                    <h1>Gareth Kanter</h1>
                 </div>
-
-                <!-- Carousel Navigation Buttons -->
-                <button id="prev-button" class="carousel-nav-button left-4">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                </button>
-                <button id="next-button" class="carousel-nav-button right-4">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="writing.html">Writing</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li>
+                            <button id="theme-toggle" aria-label="Toggle theme">
+                                <span class="theme-icon">☼</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </div>
+        </div>
+    </header>
 
-            <!-- 2. Content Overlay (Centered and Fixed Position) -->
-            <div class="absolute inset-0 z-10 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-                <div class="max-w-4xl mx-auto text-center p-8">
-                    <h2 class="text-5xl sm:text-7xl font-bold mb-4 tracking-tighter text-white">
-                        Gareth Kanter
-                    </h2>
-                    <p class="text-xl sm:text-2xl text-gray-100 font-light mb-8 drop-shadow-lg">
-                        Rooted in <span class="text-accent-text-light dark:text-gray-300">writing</span>, branching into <span class="text-gray-300">software</span>.
-                    </p>
-                    <div class="flex justify-center space-x-4">
-                        <a href="#writing" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-md text-white bg-accent hover:bg-slate-600 transition duration-300 transform hover:scale-105">
-                            Read My Work &rarr;
-                        </a>
-                        <a href="#code" class="inline-flex items-center px-6 py-3 border border-accent text-base font-medium rounded-full shadow-md text-white border-white/50 hover:bg-white/10 transition duration-300 transform hover:scale-105">
-                            See My Projects
-                        </a>
+    <main>
+        <section class="hero">
+            <div class="hero-carousel">
+                <img src="images/causal.png" alt="Hero 1" class="active">
+                <img src="images/vitality.png" alt="Hero 2">
+                <img src="images/tgow2.png" alt="Hero 3">
+            </div>
+            <div class="container">
+                <h2>Writer & Software Developer</h2>
+                <p>Crafting stories and building software that matters.</p>
+            </div>
+        </section>
+
+        <section class="intro">
+            <div class="container">
+                <div class="intro-grid">
+                    <div class="intro-card">
+                        <h3>Writing</h3>
+                        <p>Exploring ideas through the written word, from fiction to essays that challenge and inspire.</p>
+                        <a href="writing.html" class="btn">View Writing</a>
+                    </div>
+                    <div class="intro-card">
+                        <h3>Development</h3>
+                        <p>Building software solutions with clean code and thoughtful design.</p>
+                        <a href="projects.html" class="btn">View Projects</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Main Content Grid (Two Columns: Writing & Code) -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-            <!-- Writing Section -->
-            <section id="writing" class="space-y-8">
-                <h3 class="text-4xl font-extrabold text-indigo-500 dark:text-indigo-100 border-b-2 border-indigo-400 pb-2 mb-4">
-                    Creative & Critical Writing
-                </h3>
-
-                <!-- Short Stories Card -->
-                <div class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
-                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Short Stories</h4>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        A collection of speculative fiction and slice-of-life narratives exploring themes of identity and nature.
-                    </p>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.81 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.81-2.034a1 1 0 00-1.175 0l-2.81 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <a href="#" class="hover:text-accent">The Last Static Transmission (Sci-Fi)</a>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.81 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.81-2.034a1 1 0 00-1.175 0l-2.81 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <a href="#" class="hover:text-accent">The Gardener of 13B (Fantasy)</a>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-sm mt-4 inline-block text-indigo-500 dark:text-indigo-400 hover:text-indigo-600">View All Stories &rarr;</a>
+        <section class="recent">
+            <div class="container">
+                <h2>Recent Work</h2>
+                <div class="work-grid">
+                    <article class="work-item">
+                        <h4>Latest Article</h4>
+                        <p>An exploration of narrative structure in modern storytelling...</p>
+                        <a href="#">Read more →</a>
+                    </article>
+                    <article class="work-item">
+                        <h4>Latest Project</h4>
+                        <p>A new tool for writers to track their creative process...</p>
+                        <a href="#">Learn more →</a>
+                    </article>
                 </div>
-
-                <!-- Film Reviews Card -->
-                <div class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
-                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Film Reviews & Critique</h4>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        In-depth analyses of contemporary cinema and classic works, focusing on narrative structure and visual metaphor.
-                    </p>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                            <a href="#" class="hover:text-accent">Review: 'Echo Chamber' (2025)</a>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                            <a href="#" class="hover:text-accent">Tarkovsky's Aesthetics of Time</a>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-sm mt-4 inline-block text-indigo-500 dark:text-indigo-400 hover:text-indigo-600">View All Reviews &rarr;</a>
-                </div>
-            </section>
-
-            <!-- Code/Projects Section -->
-            <section id="code" class="space-y-8">
-                <h3 class="text-4xl font-extrabold text-slate-500 dark:text-slate-400 border-b-2 border-slate-400 pb-2 mb-4">
-                    Software & Technical Projects
-                </h3>
-
-                <!-- Coding Projects Card -->
-                <div class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
-                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Hobbyist Software Development</h4>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        Experiments in JavaScript, Python, and Go, focusing on utility tools, APIs, and front-end development.
-                    </p>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12.5A1 1 0 017 17a1 1 0 01-.633-.316l-4-4a1 1 0 011.266-1.53l3.812 3.813 3.42-7.538a1 1 0 011.265-.633z" clip-rule="evenodd"></path></svg>
-                            <a href="#" class="hover:text-slate-500 dark:hover:text-slate-400">Project Quanta (Tiny REST API Framework in Go)</a>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12.5A1 1 0 017 17a1 1 0 01-.633-.316l-4-4a1 1 0 011.266-1.53l3.812 3.813 3.42-7.538a1 1 0 011.265-.633z" clip-rule="evenodd"></path></svg>
-                            <a href="#" class="hover:text-slate-500 dark:hover:text-slate-400">Markdown Editor (React/TS Frontend)</a>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-sm mt-4 inline-block text-slate-500 dark:text-slate-400 hover:text-slate-600">View All Repositories &rarr;</a>
-                </div>
-
-                <!-- Ephemera / Miscellaneous Card -->
-                <section id="ephemera" class="p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border card">
-                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-gray-50 mb-3">Ephemera & Musings</h4>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        The "other stuff"—short blog posts, random thoughts on design, book notes, and personal updates.
-                    </p>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v10h10V6H5zm2 2h6v2H7V8zm0 4h3v2H7v-2z" clip-rule="evenodd"></path></svg>
-                            <a href="#" class="hover:text-accent">10 Things I Learned from Rust (Post)</a>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v10h10V6H5zm2 2h6v2H7V8zm0 4h3v2H7v-2z" clip-rule="evenodd"></path></svg>
-                            <a href="#" class="hover:text-accent">My Favorite Mechanical Keyboards (List)</a>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-sm mt-4 inline-block text-gray-600 dark:text-gray-400 hover:text-accent">Explore the Archive &rarr;</a>
-                </section>
-            </section>
-        </div>
-
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer id="contact" class="border-t mt-16 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h4 class="text-2xl font-bold mb-4 text-accent">Let's Connect</h4>
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="mailto:gareth@example.com" class="text-gray-700 dark:text-gray-400 hover:text-slate-600 dark:hover:text-slate-400 transition duration-300">Email</a>
-                <a href="https://github.com/gareth-kanter" target="_blank" class="text-gray-700 dark:text-gray-400 hover:text-slate-600 dark:hover:text-slate-400 transition duration-300">GitHub</a>
-                <a href="https://twitter.com/gareth_writes" target="_blank" class="text-gray-700 dark:text-gray-400 hover:text-slate-600 dark:hover:text-slate-400 transition duration-300">Twitter</a>
-            </div>
-            <p class="text-sm text-gray-500 mt-6">
-                &copy; 2025 Gareth Kanter. Built with curiosity and code.
-            </p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Gareth Kanter. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
+<!-- STYLES.CSS -->
+<style id="external-css">
+:root {
+    --primary-color: #0f766e;
+    --secondary-color: #0d9488;
+    --accent-color: #14b8a6;
+    --background-color: #e7e5e4; /*old color: #f5f5f4, changed it to match surface color for light mode only*/
+    --surface-color: #e7e5e4;
+    --text-color: #292524;
+    --text-secondary: #78716c;
+    --border-color: #d6d3d1;
+    --shadow: 0 2px 8px rgba(15, 118, 110, 0.08);
+    --shadow-lg: 0 12px 24px rgba(15, 118, 110, 0.12);
+    --logo-color: var(--primary-color);
+	--carousel-opacity: .5;
+}
+
+[data-theme="dark"] {
+    --primary-color: #fbbf24;
+    --secondary-color: #fcd34d;
+    --accent-color: #fb923c;
+    --background-color: #1c1917;
+    --surface-color: #292524;
+    --text-color: #fafaf9;
+    --text-secondary: #a8a29e;
+    --border-color: #44403c;
+    --shadow: 0 2px 8px rgba(251, 191, 36, 0.2);
+    --shadow-lg: 0 12px 24px rgba(251, 191, 36, 0.25);
+    --logo-color: var(--primary-color);
+	--carousel-opacity: .15;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Verdana', 'Trebuchet', 'Calibri', sans-serif;
+    line-height: 1.75;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--surface-color);
+    border-bottom: 2px solid var(--border-color);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-placeholder {
+	color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    /*background: linear-gradient(135deg, var(--logo-color), var(--accent-color));
+    border-radius: 25%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);*/
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+    font-family: 'Menlo', sans-serif;
+	padding-left: .5em;
+	letter-spacing: 0.25em;
+}
+
+/* Nav and toggle grouped on the right */
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 400;
+    transition: color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
+
+#theme-toggle {
+    background: none;
+    border: 0px solid var(--border-color);
+    border-radius: 25%;
+    padding: 0.6rem;
+    cursor: pointer;
+    font-size: 1.15rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-color);
+    margin-left: 1rem;
+	color: var(--primary-color);
+	font-size: 1.5em;
+}
+
+#theme-toggle:hover {
+    border-color: var(--primary-color);
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    padding: 5rem 0;
+    text-align: center;
+    background: var(--background-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.hero-carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-carousel img.active {
+    opacity: var(--carousel-opacity);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, var(--border-color) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, var(--surface-color) 0%, transparent 50%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    font-family: 'Verdana', sans-serif;
+}
+
+.hero p {
+    font-size: 1.35rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    position: relative;
+    font-weight: 300;
+}
+
+/* Intro Section */
+.intro {
+    padding: 4rem 0;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Unified Card Styles - subtle until hover */
+.intro-card,
+.work-item {
+    background-color: transparent;
+    padding: 2.5rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px var(--surface-color);
+}
+
+/* 
+OLD VERSION
+.intro-card,
+.work-item {
+    background-color: transparent;
+    padding: 2.5rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px var(--border-color);
+}
+*/
+
+.intro-card::before,
+.work-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.intro-card:hover,
+.work-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--surface-color);
+    border-color: var(--primary-color);
+}
+
+.intro-card:hover::before,
+.work-item:hover::before {
+    opacity: 0.05;
+}
+
+.intro-card h3,
+.work-item h4 {
+    font-size: 1.65rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    position: relative;
+}
+
+.intro-card p,
+.work-item p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.intro-card a,
+.work-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.intro-card a:hover,
+.work-item a:hover {
+    color: var(--secondary-color);
+    letter-spacing: 0.5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(15, 118, 110, 0.15);
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 118, 110, 0.25);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Recent Work Section */
+.recent {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, var(--background-color) 0%, var(--surface-color) 100%);
+}
+
+.recent h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+</style>
+
+<!-- SCRIPT.JS -->
+<script id="external-js">
+// Theme Management
+class ThemeManager {
+    constructor() {
+        this.theme = this.getInitialTheme();
+        this.applyTheme(this.theme);
+        this.setupEventListeners();
+        this.startCarousel();
+    }
+
+    getInitialTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+        
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return prefersDark ? 'dark' : 'light';
+    }
+
+    applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        this.updateThemeIcon(theme);
+        localStorage.setItem('theme', theme);
+        this.theme = theme;
+    }
+
+    updateThemeIcon(theme) {
+        const icon = document.querySelector('.theme-icon');
+        if (icon) {
+            icon.textContent = theme === 'dark' ? '☼' : '☽';
+        }
+    }
+
+    toggleTheme() {
+        const newTheme = this.theme === 'light' ? 'dark' : 'light';
+        this.applyTheme(newTheme);
+    }
+
+    setupEventListeners() {
+        const toggleButton = document.getElementById('theme-toggle');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => this.toggleTheme());
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                this.applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+
+    startCarousel() {
+        const images = document.querySelectorAll('.hero-carousel img');
+        if (images.length === 0) return;
+        
+        let currentIndex = 0;
+        
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 5000);
+    }
+}
+
+// Initialize theme manager when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new ThemeManager();
+});
+</script>

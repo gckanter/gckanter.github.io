@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gareth Kanter: Writer & Developer</title>
+    <!-- Favicon link referencing the local SVG file -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use 'class' for dark mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Georgia', 'Crimson Text', 'Merriweather', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'base': '18px',
+                    },
+                    lineHeight: {
+                        'relaxed': '1.7',
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="navbar.js" defer></script>
+    <script src="theme.js"></script>
+	<script src="carousel.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased min-h-screen font-serif">
+
+    <!-- Header & Navigation -->
+    <div data-include="navbar.html"></div>
+
+    <main class="max-w-5xl mx-auto px-6 py-16">
+
+        <!-- Combined Hero/Carousel Section -->
+        <section id="hero-container" class="relative mb-16 rounded-lg overflow-hidden shadow-sm" style="border: 2px solid var(--border-color);">
+            
+            <!-- 1. Image Carousel (Background Layer) -->
+            <div id="carousel" class="carousel-container min-h-[300px] sm:min-h-[400px]">
+                <div id="carousel-track" class="carousel-track h-full">
+                    <!-- Carousel Item 1: Writing -->
+                    <div class="carousel-item">
+                        <img src="https://placehold.co/1200x400/8B6F47/F5F1E8?text=Writing+Sample"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1200x400/8B6F47/F5F1E8?text=Writing';"
+                             alt="Writing sample placeholder"
+                             class="w-full h-full object-cover" />
+                    </div>
+                    <!-- Carousel Item 2: Code -->
+                    <div class="carousel-item">
+                        <img src="https://placehold.co/1200x400/6B5744/F5F1E8?text=Code+Projects"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1200x400/6B5744/F5F1E8?text=Code';"
+                             alt="Code project placeholder"
+                             class="w-full h-full object-cover" />
+                    </div>
+                    <!-- Carousel Item 3: Review -->
+                    <div class="carousel-item">
+                        <img src="https://placehold.co/1200x400/5C4E3A/F5F1E8?text=Film+Reviews"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1200x400/5C4E3A/F5F1E8?text=Reviews';"
+                             alt="Film review placeholder"
+                             class="w-full h-full object-cover" />
+                    </div>
+                </div>
+
+                <!-- Carousel Navigation Buttons -->
+                <button id="prev-button" class="carousel-nav-button left-4">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button id="next-button" class="carousel-nav-button right-4">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </div>
+
+            <!-- 2. Content Overlay -->
+            <div class="absolute inset-0 z-10 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+                <div class="max-w-4xl mx-auto text-center p-8">
+                    <h1 class="text-4xl md:text-6xl font-semibold mb-4 tracking-tight text-white">
+                        Gareth Kanter
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-100 font-light mb-8 drop-shadow-lg">
+                        Rooted in <span style="color: var(--accent-primary);">writing</span>, branching into <span class="text-gray-200">software</span>.
+                    </p>
+                    <div class="flex justify-center gap-4 flex-wrap">
+                        <a href="#writing" class="inline-flex items-center px-6 py-3 border-2 rounded font-serif text-base transition-all duration-300" style="border-color: var(--accent-primary); color: white; background-color: var(--accent-primary);">
+                            Read My Work &rarr;
+                        </a>
+                        <a href="#code" class="inline-flex items-center px-6 py-3 border-2 rounded font-serif text-base transition-all duration-300" style="border-color: white; color: white; background-color: transparent;">
+                            See My Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <!-- Writing Section -->
+            <section id="writing" class="space-y-6">
+                <h2 class="text-3xl md:text-4xl font-semibold mb-5 pb-2" style="border-bottom: 2px solid var(--border-color); color: var(--text-color);">
+                    Creative & Critical Writing
+                </h2>
+
+                <!-- Short Stories Card -->
+                <div class="p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color);">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: var(--text-color);">Short Stories</h3>
+                    <p class="mb-5 text-lg leading-relaxed" style="color: var(--text-secondary);">
+                        A collection of speculative fiction and slice-of-life narratives exploring themes of identity and nature.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--accent-primary);" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.81 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.81-2.034a1 1 0 00-1.175 0l-2.81 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">The Last Static Transmission (Sci-Fi)</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--accent-primary);" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.81 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.81-2.034a1 1 0 00-1.175 0l-2.81 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">The Gardener of 13B (Fantasy)</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block transition-colors duration-200" style="color: var(--accent-primary);">View All Stories &rarr;</a>
+                </div>
+
+                <!-- Film Reviews Card -->
+                <div class="p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color);">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: var(--text-color);">Film Reviews & Critique</h3>
+                    <p class="mb-5 text-lg leading-relaxed" style="color: var(--text-secondary);">
+                        In-depth analyses of contemporary cinema and classic works, focusing on narrative structure and visual metaphor.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--accent-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">Review: 'Echo Chamber' (2025)</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--accent-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">Tarkovsky's Aesthetics of Time</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block transition-colors duration-200" style="color: var(--accent-primary);">View All Reviews &rarr;</a>
+                </div>
+            </section>
+
+            <!-- Code/Projects Section -->
+            <section id="code" class="space-y-6">
+                <h2 class="text-3xl md:text-4xl font-semibold mb-5 pb-2" style="border-bottom: 2px solid var(--border-color); color: var(--text-color);">
+                    Software & Technical Projects
+                </h2>
+
+                <!-- Coding Projects Card -->
+                <div class="p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color);">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: var(--text-color);">Hobbyist Software Development</h3>
+                    <p class="mb-5 text-lg leading-relaxed" style="color: var(--text-secondary);">
+                        Experiments in JavaScript, Python, and Go, focusing on utility tools, APIs, and front-end development.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--accent-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12.5A1 1 0 017 17a1 1 0 01-.633-.316l-4-4a1 1 0 011.266-1.53l3.812 3.813 3.42-7.538a1 1 0 011.265-.633z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">Project Quanta (REST API Framework in Go)</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--accent-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12.5A1 1 0 017 17a1 1 0 01-.633-.316l-4-4a1 1 0 011.266-1.53l3.812 3.813 3.42-7.538a1 1 0 011.265-.633z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">Markdown Editor (React/TypeScript)</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block transition-colors duration-200" style="color: var(--accent-primary);">View All Repositories &rarr;</a>
+                </div>
+
+                <!-- Ephemera Card -->
+                <div class="p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color);">
+                    <h3 class="text-2xl font-semibold mb-3" style="color: var(--text-color);">Ephemera & Musings</h3>
+                    <p class="mb-5 text-lg leading-relaxed" style="color: var(--text-secondary);">
+                        The "other stuff"—short blog posts, random thoughts on design, book notes, and personal updates.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--text-secondary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v10h10V6H5zm2 2h6v2H7V8zm0 4h3v2H7v-2z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">10 Things I Learned from Rust</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-4 h-4 mt-1 flex-shrink-0" style="color: var(--text-secondary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2v10h10V6H5zm2 2h6v2H7V8zm0 4h3v2H7v-2z" clip-rule="evenodd"></path></svg>
+                            <a href="#" class="transition-colors duration-200" style="color: var(--link-color);">My Favorite Mechanical Keyboards</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-sm mt-4 inline-block transition-colors duration-200" style="color: var(--link-color);">Explore the Archive &rarr;</a>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-12 mt-20 text-center" style="border-top: 1px solid var(--border-color);">
+        <div class="max-w-5xl mx-auto px-6">
+            <h3 class="text-2xl font-semibold mb-4" style="color: var(--accent-primary);">Let's Connect</h3>
+            <div class="flex justify-center gap-6 mb-4 flex-wrap">
+                <a href="mailto:gareth@example.com" class="transition-colors duration-200" style="color: var(--link-color);">Email</a>
+                <a href="https://github.com/gareth-kanter" target="_blank" class="transition-colors duration-200" style="color: var(--link-color);">GitHub</a>
+                <a href="https://twitter.com/gareth_writes" target="_blank" class="transition-colors duration-200" style="color: var(--link-color);">Twitter</a>
+            </div>
+            <p class="text-sm mt-6" style="color: var(--text-secondary);">
+                &copy; 2025 Gareth Kanter. Built with curiosity and code.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,8 +1,7 @@
 /**
- * **FINAL ROBUST THEME TOGGLE SCRIPT**
- * This script uses a combination of global function definition and an aggressive 
- * interval check running after the page has finished loading (window.onload) 
- * to reliably attach the listener to the dynamically loaded 'theme-toggle' button.
+ * ENHANCED THEME TOGGLE SCRIPT WITH SYSTEM PREFERENCE DETECTION
+ * Automatically detects and follows system dark/light mode preferences
+ * while still allowing manual override via toggle button
  */
 
 // 1. Core Set/Toggle Functionality (made global for easy access)
@@ -20,22 +19,42 @@ window.setTheme = function(mode) {
     }
 }
 
-// 2. Initialization and Listener Setup (Runs after all content, including dynamic, is ready)
+// 2. Listen for system preference changes in real-time
+window.watchSystemPreference = function() {
+    const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    darkModeQuery.addEventListener('change', (e) => {
+        // Only auto-switch if user hasn't manually set a preference
+        const userPreference = localStorage.getItem('theme');
+        if (!userPreference) {
+            const newTheme = e.matches ? 'dark' : 'light';
+            window.setTheme(newTheme);
+            console.log(`[Theme Switcher] System preference changed to: ${newTheme}`);
+        }
+    });
+}
+
+// 3. Initialization and Listener Setup
 window.onload = function() {
     
     // --- Initialization (Set initial theme state) ---
     let currentTheme = localStorage.getItem('theme');
 
     if (!currentTheme) {
-        // Fallback to system preference if no stored theme is found
+        // Use system preference if no manual preference is stored
         currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        console.log(`[Theme Switcher] No stored preference. Using system default: ${currentTheme}`);
+    } else {
+        console.log(`[Theme Switcher] Using stored preference: ${currentTheme}`);
     }
 
     // Apply the initial theme state
     window.setTheme(currentTheme);
-    console.log(`[Theme Switcher] Initial theme applied: ${currentTheme}`);
+    
+    // Start watching for system preference changes
+    window.watchSystemPreference();
 
-    // --- Button Listener Setup (The guaranteed fix for dynamic loading) ---
+    // --- Button Listener Setup ---
     let attempts = 0;
     const checkButtonInterval = setInterval(() => {
         const toggleButton = document.getElementById('theme-toggle');
