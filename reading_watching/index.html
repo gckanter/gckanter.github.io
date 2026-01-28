@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I'm Reading & Watching - Gareth Kanter</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <script src="reading-feed.js" defer></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-placeholder" id="logo">
+                    <a href="index.html"><svg width="40" height="40" viewbox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 0 0 H 100 V 100 H 0 V 0" fill="currentColor"></path>
+                    <path d="M 80 0 H 100 V 300 H 80 V 0" fill="currentColor"></path>
+                    <path d="M 0 200 H 100 V 300 H 0 V 200" fill="currentColor"></path>
+                    <path d="M 200 0 H 300 V 100 H 200 V 0" fill="currentColor"></path>
+                    <path d="M 200 0 H 220 V 300 H 200 V 0" fill="currentColor"></path>
+                    <path d="M 200 200 H 300 V 300 H 200 V 200" fill="currentColor"></path></svg></a>
+                </div>
+                <h1>Gareth Kanter</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/writing">Writing</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/reading-watching.html" class="active">Reading & Watching</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li>
+                        <button id="theme-toggle" aria-label="Toggle theme"><span class="theme-icon">☼</span></button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<main class="reading-main">
+    <div class="reading-container">
+        <header class="page-header">
+            <h1>What I'm Reading & Watching</h1>
+            <p class="page-intro">A running log of books and films that have shaped my thinking lately.</p>
+        </header>
+
+        <!-- Books Section -->
+        <section class="media-section">
+            <div class="section-header">
+                <h2>Recently Read</h2>
+                <a href="https://www.goodreads.com/user/show/152798329-gareth" target="_blank" class="external-link">
+                    View on Goodreads →
+                </a>
+            </div>
+            
+            <div id="books-loading" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading recent books...</p>
+            </div>
+            
+            <div id="books-error" class="error-state" style="display: none;">
+                <p>Unable to load recent books. <a href="https://www.goodreads.com/user/show/152798329-gareth" target="_blank">View on Goodreads</a></p>
+            </div>
+            
+            <div id="books-grid" class="media-grid"></div>
+        </section>
+
+        <!-- Films Section -->
+        <section class="media-section">
+            <div class="section-header">
+                <h2>Recently Watched</h2>
+                <a href="https://letterboxd.com/yourusername/" target="_blank" class="external-link">
+                    View on Letterboxd →
+                </a>
+            </div>
+            
+            <div class="films-placeholder">
+                <p>Film feed integration coming soon. For now, <a href="https://letterboxd.com/yourusername/" target="_blank">view my Letterboxd profile</a>.</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Abeyance Pictures. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
